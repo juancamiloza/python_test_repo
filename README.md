@@ -1,5 +1,5 @@
-# python_test_repo
+# Juan's python_test_repo
 
-Place were I test my pyhthon beginer projects
-Multitaks between operation systems
-Hopefully colaborate with other coders and get tips on how to improve
+Place where I test my python beginner projects
+Multitasks between operation systems
+Hopefully collaborate with other coders and get tips on how to improve
