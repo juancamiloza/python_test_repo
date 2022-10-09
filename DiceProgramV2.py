@@ -22,7 +22,6 @@ while program_state:
                     roll_state = False
                 else:
                     create = 1
-                    # for create, number_of_dices in enumerate(dices.append(random.randint(1,dice_faces))):
                     while create != number_of_dices:
                         dices.append(random.randint(1, dice_faces))
                         create += 1
