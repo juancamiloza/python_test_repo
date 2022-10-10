@@ -12,17 +12,18 @@ import time
 
 
 def program_name(pname):
-    app_challenge = False
+    app_challenge = True
     program_states = ["Q", "QUIT"]
     print(f"Welcome to {pname}")
     first_action = str.upper(input("Press ENTER to continue, write QUIT to exit "))
-    while not app_challenge:
+    while app_challenge:
         if first_action in program_states:
             print(f"Thank you for using {pname}")
             time.sleep(5)
             exit()
         elif len(first_action) == 0:
-            app_challenge = True
+            break
         else:
             print("Wrong command")
             first_action = str.upper(input("Press ENTER to continue, write QUIT to exit "))
+program_name("Test")
