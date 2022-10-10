@@ -5,7 +5,7 @@
 #                                # Replace "app" with your app's name
 # while program_state:
 #
-#     hello.program_name("app")
+#     hello.program_name("app")  #CHECK FOR CORRECT INDENTATION
 #--------------------------------------------------
 
 import time
