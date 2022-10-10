@@ -26,4 +26,3 @@ def program_name(pname):
         else:
             print("Wrong command")
             first_action = str.upper(input("Press ENTER to continue, write QUIT to exit "))
-program_name("Test")
