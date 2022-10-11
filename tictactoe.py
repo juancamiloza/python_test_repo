@@ -83,15 +83,12 @@ while program_state:
             clist.append(glist[2][c])
 
     def compile_list():
-        glist[0][0] = clist [0]
-        glist[0][1] = clist [1]
-        glist[0][2] = clist [2]
-        glist[1][0] = clist [3]
-        glist[1][1] = clist [4]
-        glist[1][2] = clist [5]
-        glist[2][0] = clist [6]
-        glist[2][1] = clist [7]
-        glist[2][2] = clist [8]
+        for s in range(0,3):
+            glist[0][s] = clist [s]
+        for s1 in range(0,3):
+            glist[1][s1] = clist [s1 + 3]
+        for s2 in range(0,3):
+            glist[2][s2] = clist [s2 + 6]
 
     def random_choice():
         cchallenge = True
