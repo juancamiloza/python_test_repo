@@ -1,5 +1,6 @@
 import random
 import copy
+import time
 
 #def create_board(size):
 #    glist = []
@@ -13,10 +14,14 @@ import copy
 #        glist[2].append((" "))
 #    print(glist)
 
+win_condition = False
+winx = [" X "," X "," X "]
+wino = [" O "," O "," O "]
 size = 3
 help = [[" 1 "," 2 "," 3 "],[" 4 "," 5 "," 6 "],[" 7 "," 8 "," 9 "]]
 glist = []
 clist = []
+start = random.randint(0,1)
 for c in range (size):
     glist.append(["   "])
 for d in range (size-1):
@@ -80,14 +85,123 @@ def random_choice():
     while cchallenge:
         challenge = random.randint(0,8)
         if clist[challenge] == "   ":
-            clist[challenge] = " X "
+            clist[challenge] = " O "
             cchallenge = False
         else:
             cchallenge = True
+def win_check():
+    if w1 == winx:
+        win_condit = True
+    elif w2 == winx:
+        win_condit = True
+    elif w3 == winx:
+        win_condit = True
+    elif w4 == winx:
+        win_condit = True
+    elif w5 == winx:
+        win_condit = True
+    elif w6 == winx:
+        win_condit = True
+    elif w7 == winx:
+        win_condit = True
+    elif w1 == wino:
+        win_condit = True
+    elif w2 == wino:
+        win_condit = True
+    elif w3 == wino:
+        win_condit = True
+    elif w4 == wino:
+        win_condit = True
+    elif w5 == wino:
+        win_condit = True
+    elif w6 == wino:
+        win_condit = True
+    elif w7 == wino:
+        win_condit = True
+    else:
+        win_condit = False
+    return win_condit
 
-decompile_list()
-random_choice()
-compile_list()
-print_board()
 
 
+print_help()
+#time.sleep(5)
+if start == 0:
+    turn = 0
+    while not win_condition:
+        if turn == 0:
+            print("Your turn!\n")
+            choice = int(input("Choose a cell to place X: "))
+            decompile_list()
+            clist[choice-1] = " X "
+            compile_list()
+            print_board()
+            w1 = [clist[0],clist[1],clist[2]]
+            w2 = [clist[3],clist[4],clist[5]]
+            w3 = [clist[6],clist[7],clist[8]]
+            w4 = [clist[0],clist[4],clist[8]]
+            w5 = [clist[2],clist[4],clist[6]]
+            w6 = [clist[1],clist[4],clist[7]]
+            w7 = [clist[0],clist[3],clist[6]]
+            w7 = [clist[2],clist[5],clist[8]]
+            win_check()
+            win_condition = win_check()
+            turn = 1
+        else:
+            print("Computer's turn")
+            #time.sleep(5)
+            decompile_list()
+            random_choice()
+            compile_list()
+            print_board()
+            w1 = [clist[0],clist[1],clist[2]]
+            w2 = [clist[3],clist[4],clist[5]]
+            w3 = [clist[6],clist[7],clist[8]]
+            w4 = [clist[0],clist[4],clist[8]]
+            w5 = [clist[2],clist[4],clist[6]]
+            w6 = [clist[1],clist[4],clist[7]]
+            w7 = [clist[0],clist[3],clist[6]]
+            w7 = [clist[2],clist[5],clist[8]]
+            win_check()
+            win_condition = win_check()
+            turn = 0
+else:
+    turn = 1
+    while not win_condition:
+        if turn == 1:
+            print("Computer's turn!")
+            #time.sleep(5)
+            decompile_list()
+            random_choice()
+            compile_list()
+            print_board()
+            w1 = [clist[0],clist[1],clist[2]]
+            w2 = [clist[3],clist[4],clist[5]]
+            w3 = [clist[6],clist[7],clist[8]]
+            w4 = [clist[0],clist[4],clist[8]]
+            w5 = [clist[2],clist[4],clist[6]]
+            w6 = [clist[1],clist[4],clist[7]]
+            w7 = [clist[0],clist[3],clist[6]]
+            w7 = [clist[2],clist[5],clist[8]]
+            win_check()
+            win_condition = win_check()
+            turn = 0
+        else:
+            print("Your turn!\n")
+            choice = int(input("Choose a cell to place X: "))
+            decompile_list()
+            clist[choice-1] = " X "
+            compile_list()
+            print_board()
+            w1 = [clist[0],clist[1],clist[2]]
+            w2 = [clist[3],clist[4],clist[5]]
+            w3 = [clist[6],clist[7],clist[8]]
+            w4 = [clist[0],clist[4],clist[8]]
+            w5 = [clist[2],clist[4],clist[6]]
+            w6 = [clist[1],clist[4],clist[7]]
+            w7 = [clist[0],clist[3],clist[6]]
+            w7 = [clist[2],clist[5],clist[8]]
+            win_check()
+            win_condition = win_check()
+            turn = 1
+print("GAME!")
