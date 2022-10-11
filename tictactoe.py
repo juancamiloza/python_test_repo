@@ -1,5 +1,4 @@
-from cgi import test
-from doctest import testfile
+
 import random
 import time
 import hello
@@ -14,7 +13,7 @@ while program_state:
     winx = [" X ", " X ", " X "]
     wino = [" O ", " O ", " O "]
     size = 3
-    help = [[" 1 ", " 2 ", " 3 "], [" 4 ", " 5 ", " 6 "], [" 7 ", " 8 ", " 9 "]]
+    helpl = [[" 1 ", " 2 ", " 3 "], [" 4 ", " 5 ", " 6 "], [" 7 ", " 8 ", " 9 "]]
     glist = []
     clist = []
     start = random.randint(0, 1)
@@ -48,13 +47,13 @@ while program_state:
         divisor = "----" * matrix_size
         p = 0
         while p <= matrix_size:
-            print(*help[p], sep="|")
+            print(*helpl[p], sep="|")
             p += 1
             if p < matrix_size:
                 print(divisor)
             else:
                 break
-        print(f"\nWhen promped, type the number of the cell you want to place your charater\n")
+        print(f"\nWhen prompted, type the number of the cell you want to place your character\n")
 
     def decompile_list():
         for c in range(size):
@@ -113,7 +112,7 @@ while program_state:
                 testi = True
                 return choice1
             except ValueError:
-                print(("\nWrong value, type a number\n"))
+                print("\nWrong value, type a number\n")
                 print_help()
                 time.sleep(tinterval * 1.25)
                 print_board()
