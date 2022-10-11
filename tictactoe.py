@@ -1,33 +1,16 @@
 from cgi import test
 from doctest import testfile
 import random
-import copy
 import time
 import hello
 
-
-
 program_state = True   
-
 while program_state:
 
     hello.program_name("Tic Tac Toe")
 
-#def create_board(size):
-#    glist = []
-#    for c in range (size):
-#        glist.append([" "])
-#    for d in range (size-1):
-#        glist[0].append((" "))
-#    for e in range (size-1):
-#        glist[1].append((" "))
-#    for f in range (size-1):
-#        glist[2].append((" "))
-#    print(glist)
-
-
-
     win_condition = False
+    tinterval = 1.5
     winx = [" X "," X "," X "]
     wino = [" O "," O "," O "]
     size = 3
@@ -58,7 +41,6 @@ while program_state:
             else:
                 break
         print("\n")
-
 
     def print_help():
         print("\n")
@@ -111,14 +93,14 @@ while program_state:
         w6 = [clist[0],clist[3],clist[6]]
         w7 = [clist[2],clist[5],clist[8]]
         wlist = [w0,w1,w2,w3,w4,w5,w6,w7]
-        while ch != 7:
+        while ch != 8:
             if wlist[ch] == winx:
                 win_condit = True
-                ch = 7
+                ch = 8
                 return win_condit
             elif wlist[ch] == wino:
                 win_condit = True
-                ch = 7
+                ch = 8
                 return win_condit
             else:
                 ch += 1
@@ -132,7 +114,9 @@ while program_state:
                 return choice1
             except ValueError:
                 print(("\nWrong value, type a number\n"))
-
+                print_help()
+                time.sleep(tinterval * 1.25)
+                print_board()
 
     print_help()
     if start == 0:
@@ -149,7 +133,7 @@ while program_state:
                 turn = 1
             else:
                 print("Computer's turn")
-                time.sleep(3)
+                time.sleep(tinterval)
                 decompile_list()
                 random_choice()
                 compile_list()
@@ -161,7 +145,7 @@ while program_state:
         while not win_condition:
             if turn == 1:
                 print("Computer's turn!")
-                time.sleep(3)
+                time.sleep(tinterval)
                 decompile_list()
                 random_choice()
                 compile_list()
