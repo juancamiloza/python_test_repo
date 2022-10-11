@@ -105,15 +105,15 @@ while program_state:
 
     def win_check():
         ch = 0
-        w1 = [clist[0],clist[1],clist[2]]
-        w2 = [clist[3],clist[4],clist[5]]
-        w3 = [clist[6],clist[7],clist[8]]
-        w4 = [clist[0],clist[4],clist[8]]
-        w5 = [clist[2],clist[4],clist[6]]
-        w6 = [clist[1],clist[4],clist[7]]
-        w7 = [clist[0],clist[3],clist[6]]
+        w0 = [clist[0],clist[1],clist[2]]
+        w1 = [clist[3],clist[4],clist[5]]
+        w2 = [clist[6],clist[7],clist[8]]
+        w3 = [clist[0],clist[4],clist[8]]
+        w4 = [clist[2],clist[4],clist[6]]
+        w5 = [clist[1],clist[4],clist[7]]
+        w6 = [clist[0],clist[3],clist[6]]
         w7 = [clist[2],clist[5],clist[8]]
-        wlist = [w1,w2,w3,w4,w5,w6,w7]
+        wlist = [w0,w1,w2,w3,w4,w5,w6,w7]
         while ch != 7:
             if wlist[ch] == winx:
                 win_condit = True
@@ -125,8 +125,6 @@ while program_state:
                 return win_condit
             else:
                 ch += 1
-                win_condit = False
-                return win_condit
 
     def usr_input():
         testi = False
@@ -137,14 +135,9 @@ while program_state:
                 return choice1
             except ValueError:
                 print(("\nWrong value, type a number\n"))
-                print_help()
-                time.sleep(3)
-                print_board()
-
 
 
     print_help()
-    time.sleep(3)
     if start == 0:
         turn = 0
         while not win_condition:
@@ -159,6 +152,7 @@ while program_state:
                 turn = 1
             else:
                 print("Computer's turn")
+                time.sleep(3)
                 decompile_list()
                 random_choice()
                 compile_list()
@@ -170,6 +164,7 @@ while program_state:
         while not win_condition:
             if turn == 1:
                 print("Computer's turn!")
+                time.sleep(3)
                 decompile_list()
                 random_choice()
                 compile_list()
