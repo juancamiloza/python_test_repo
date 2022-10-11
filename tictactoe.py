@@ -11,22 +11,22 @@ while program_state:
 
     win_condition = False
     tinterval = 1.5
-    winx = [" X "," X "," X "]
-    wino = [" O "," O "," O "]
+    winx = [" X ", " X ", " X "]
+    wino = [" O ", " O ", " O "]
     size = 3
-    help = [[" 1 "," 2 "," 3 "],[" 4 "," 5 "," 6 "],[" 7 "," 8 "," 9 "]]
+    help = [[" 1 ", " 2 ", " 3 "], [" 4 ", " 5 ", " 6 "], [" 7 ", " 8 ", " 9 "]]
     glist = []
     clist = []
-    start = random.randint(0,1)
-    for c in range (size):
+    start = random.randint(0, 1)
+    for c in range(size):
         glist.append(["   "])
-    for d in range (size-1):
-        glist[0].append(("   "))
-    for e in range (size-1):
-        glist[1].append(("   "))
-    for f in range (size-1):
-        glist[2].append(("   "))
-        
+    for d in range(size-1):
+        glist[0].append("   ")
+    for e in range(size-1):
+        glist[1].append("   ")
+    for f in range(size-1):
+        glist[2].append("   ")
+
 
     def print_board():
         print("\n")
@@ -65,17 +65,17 @@ while program_state:
             clist.append(glist[2][c])
 
     def compile_list():
-        for s in range(0,3):
-            glist[0][s] = clist [s]
-        for s1 in range(0,3):
-            glist[1][s1] = clist [s1 + 3]
-        for s2 in range(0,3):
-            glist[2][s2] = clist [s2 + 6]
+        for s in range(0, 3):
+            glist[0][s] = clist[s]
+        for s1 in range(0, 3):
+            glist[1][s1] = clist[s1 + 3]
+        for s2 in range(0, 3):
+            glist[2][s2] = clist[s2 + 6]
 
     def random_choice():
         cchallenge = True
         while cchallenge:
-            challenge = random.randint(0,8)
+            challenge = random.randint(0, 8)
             if clist[challenge] == "   ":
                 clist[challenge] = " O "
                 cchallenge = False
@@ -84,15 +84,15 @@ while program_state:
 
     def win_check():
         ch = 0
-        w0 = [clist[0],clist[1],clist[2]]
-        w1 = [clist[3],clist[4],clist[5]]
-        w2 = [clist[6],clist[7],clist[8]]
-        w3 = [clist[0],clist[4],clist[8]]
-        w4 = [clist[2],clist[4],clist[6]]
-        w5 = [clist[1],clist[4],clist[7]]
-        w6 = [clist[0],clist[3],clist[6]]
-        w7 = [clist[2],clist[5],clist[8]]
-        wlist = [w0,w1,w2,w3,w4,w5,w6,w7]
+        w0 = [clist[0], clist[1], clist[2]]
+        w1 = [clist[3], clist[4], clist[5]]
+        w2 = [clist[6], clist[7], clist[8]]
+        w3 = [clist[0], clist[4], clist[8]]
+        w4 = [clist[2], clist[4], clist[6]]
+        w5 = [clist[1], clist[4], clist[7]]
+        w6 = [clist[0], clist[3], clist[6]]
+        w7 = [clist[2], clist[5], clist[8]]
+        wlist = [w0, w1, w2, w3, w4, w5, w6, w7]
         while ch != 8:
             if wlist[ch] == winx:
                 win_condit = True
