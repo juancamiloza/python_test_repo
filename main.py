@@ -1,16 +1,32 @@
-# This is a sample Python script.
+w1 = ["c","b","1"]
+w2 = ["c","b","a"]
+w3 = ["c","b","a"]
+w4 = ["c","b","a"]
+w5 = ["c","b","a"]
+w6 = ["d","e","f"]
+w7 = ["c","b","a"]
+wlist = [w1,w2,w3,w4,w5,w6,w7]
+winx = ["d","e","w"]
+wino = ["d","e","g"]
+win_condit = False
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+def win_check():
+    ch = 0
+    while ch != 7:
+        if wlist[ch] == winx:
+            win_condit = True
+            ch = 7
+            return win_condit
+        elif wlist[ch] == wino:
+            win_condit = True
+            ch = 7
+            return win_condit
+        else:
+            ch += 1
+            win_condit = False
+            return win_condit
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(wlist[5] == winx)
+win_check()
+win_condition = win_check()
+print(win_condition)

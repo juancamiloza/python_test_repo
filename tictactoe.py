@@ -1,3 +1,5 @@
+from cgi import test
+from doctest import testfile
 import random
 import copy
 import time
@@ -100,121 +102,87 @@ while program_state:
                 cchallenge = False
             else:
                 cchallenge = True
+
     def win_check():
-        if w1 == winx:
-            win_condit = True
-        elif w2 == winx:
-            win_condit = True
-        elif w3 == winx:
-            win_condit = True
-        elif w4 == winx:
-            win_condit = True
-        elif w5 == winx:
-            win_condit = True
-        elif w6 == winx:
-            win_condit = True
-        elif w7 == winx:
-            win_condit = True
-        elif w1 == wino:
-            win_condit = True
-        elif w2 == wino:
-            win_condit = True
-        elif w3 == wino:
-            win_condit = True
-        elif w4 == wino:
-            win_condit = True
-        elif w5 == wino:
-            win_condit = True
-        elif w6 == wino:
-            win_condit = True
-        elif w7 == wino:
-            win_condit = True
-        else:
-            win_condit = False
-        return win_condit
+        ch = 0
+        w1 = [clist[0],clist[1],clist[2]]
+        w2 = [clist[3],clist[4],clist[5]]
+        w3 = [clist[6],clist[7],clist[8]]
+        w4 = [clist[0],clist[4],clist[8]]
+        w5 = [clist[2],clist[4],clist[6]]
+        w6 = [clist[1],clist[4],clist[7]]
+        w7 = [clist[0],clist[3],clist[6]]
+        w7 = [clist[2],clist[5],clist[8]]
+        wlist = [w1,w2,w3,w4,w5,w6,w7]
+        while ch != 7:
+            if wlist[ch] == winx:
+                win_condit = True
+                ch = 7
+                return win_condit
+            elif wlist[ch] == wino:
+                win_condit = True
+                ch = 7
+                return win_condit
+            else:
+                ch += 1
+                win_condit = False
+                return win_condit
+
+    def usr_input():
+        testi = False
+        while not testi:
+            try:
+                choice1 = int(input("Choose a cell to place X: "))
+                testi = True
+                return choice1
+            except ValueError:
+                print(("\nWrong value, type a number\n"))
+                print_help()
+                time.sleep(3)
+                print_board()
 
 
-    try:
-        print_help()
-        time.sleep(3)
-        if start == 0:
-            turn = 0
-            while not win_condition:
-                if turn == 0:
-                    print("Your turn!\n")
-                    choice = int(input("Choose a cell to place X: "))
-                    decompile_list()
-                    clist[choice-1] = " X "
-                    compile_list()
-                    print_board()
-                    w1 = [clist[0],clist[1],clist[2]]
-                    w2 = [clist[3],clist[4],clist[5]]
-                    w3 = [clist[6],clist[7],clist[8]]
-                    w4 = [clist[0],clist[4],clist[8]]
-                    w5 = [clist[2],clist[4],clist[6]]
-                    w6 = [clist[1],clist[4],clist[7]]
-                    w7 = [clist[0],clist[3],clist[6]]
-                    w7 = [clist[2],clist[5],clist[8]]
-                    win_check()
-                    win_condition = win_check()
-                    turn = 1
-                else:
-                    print("Computer's turn")
-                    time.sleep(3)
-                    decompile_list()
-                    random_choice()
-                    compile_list()
-                    print_board()
-                    w1 = [clist[0],clist[1],clist[2]]
-                    w2 = [clist[3],clist[4],clist[5]]
-                    w3 = [clist[6],clist[7],clist[8]]
-                    w4 = [clist[0],clist[4],clist[8]]
-                    w5 = [clist[2],clist[4],clist[6]]
-                    w6 = [clist[1],clist[4],clist[7]]
-                    w7 = [clist[0],clist[3],clist[6]]
-                    w7 = [clist[2],clist[5],clist[8]]
-                    win_check()
-                    win_condition = win_check()
-                    turn = 0
-        else:
-            turn = 1
-            while not win_condition:
-                if turn == 1:
-                    print("Computer's turn!")
-                    time.sleep(3)
-                    decompile_list()
-                    random_choice()
-                    compile_list()
-                    print_board()
-                    w1 = [clist[0],clist[1],clist[2]]
-                    w2 = [clist[3],clist[4],clist[5]]
-                    w3 = [clist[6],clist[7],clist[8]]
-                    w4 = [clist[0],clist[4],clist[8]]
-                    w5 = [clist[2],clist[4],clist[6]]
-                    w6 = [clist[1],clist[4],clist[7]]
-                    w7 = [clist[0],clist[3],clist[6]]
-                    w7 = [clist[2],clist[5],clist[8]]
-                    win_check()
-                    win_condition = win_check()
-                    turn = 0
-                else:
-                    print("Your turn!\n")
-                    choice = int(input("Choose a cell to place X: "))
-                    decompile_list()
-                    clist[choice-1] = " X "
-                    compile_list()
-                    print_board()
-                    w1 = [clist[0],clist[1],clist[2]]
-                    w2 = [clist[3],clist[4],clist[5]]
-                    w3 = [clist[6],clist[7],clist[8]]
-                    w4 = [clist[0],clist[4],clist[8]]
-                    w5 = [clist[2],clist[4],clist[6]]
-                    w6 = [clist[1],clist[4],clist[7]]
-                    w7 = [clist[0],clist[3],clist[6]]
-                    w7 = [clist[2],clist[5],clist[8]]
-                    win_check()
-                    win_condition = win_check()
-                    turn = 1
-    except ValueError:
-        print("\nWrong value, type a number\n")
+
+    print_help()
+    time.sleep(3)
+    if start == 0:
+        turn = 0
+        while not win_condition:
+            if turn == 0:
+                print("Your turn!\n")
+                choice = usr_input()
+                decompile_list()
+                clist[choice-1] = " X "
+                compile_list()
+                print_board()
+                win_condition = win_check()
+                turn = 1
+            else:
+                print("Computer's turn")
+                decompile_list()
+                random_choice()
+                compile_list()
+                print_board()
+                win_condition = win_check()
+                turn = 0
+    else:
+        turn = 1
+        while not win_condition:
+            if turn == 1:
+                print("Computer's turn!")
+                decompile_list()
+                random_choice()
+                compile_list()
+                print_board()
+                win_condition = win_check()
+                turn = 0
+            else:
+                print("Your turn!\n")
+                choice = usr_input()
+                decompile_list()
+                clist[choice-1] = " X "
+                compile_list()
+                print_board()
+                win_condition = win_check()
+                turn = 1
     print("GAME!\n")
